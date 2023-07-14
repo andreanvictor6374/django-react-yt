@@ -10,13 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
 from datetime import timedelta
-
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -28,7 +26,6 @@ SECRET_KEY = 'django-insecure-1ltqa(t*)hg+jw)iumz**-y$gm3i2k&_z*uiaktxb9a+%51!ha
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -92,21 +89,31 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         # 'ENGINE': 'django.db.backends.sqlite3',
+#         # 'NAME': './db.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'django_react_yt',
+#         'PASSWORD': 123456,
+#         'USER': 'postgres',
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': './db.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'learning',
-        'PASSWORD': 'root',
-        'USER': 'postgres',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": 'django_react_yt',
+        "USER": 'postgres',
+        "PASSWORD": '123456',
+        "HOST": '127.0.0.1',
+        "PORT": '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -126,7 +133,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -140,30 +146,26 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
 }
 
-
 DJANGO_SETTINGS_MODULE = './settings.py'
-
 
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
-
 
 # LOGGING = {
 #     'version': 1,
